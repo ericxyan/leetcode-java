@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * AddTwoNumbers
  */
@@ -22,7 +25,37 @@ public class AddTwoNumbers {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return l1;
+        return bruteForce(l1, l2);
+    }
+
+    public static ListNode bruteForce(ListNode l1, ListNode l2) {
+        List<String> listA = new ArrayList<>();
+        List<String> listB = new ArrayList<>();
+        while(l1 != null) {
+            listA.add(0, String.valueOf(l1.val));
+            l1 = l1.next;
+        }
+        while(l2 != null) {
+            listB.add(0, String.valueOf(l2.val));
+            l2 = l2.next;
+        }
+        int a = Integer.parseInt(String.join("", listA));
+        int b = Integer.parseInt(String.join("", listB));
+        int c = a + b;
+        System.out.println(c);
+        String[] sum = String.valueOf(c).split("");
+        ListNode rsHead = new ListNode(0);
+        ListNode rs = rsHead;
+        for (int i = sum.length - 1; i >= 0; i--) {
+            System.out.println(sum[i]);
+            if(i == sum.length - 1) {
+                rs.val = Integer.parseInt(sum[i]);
+            } else {
+                rs.next = new ListNode(Integer.parseInt(sum[i]));
+                rs = rs.next;
+            }
+        }
+        return rsHead;
     }
 
     public static void main(String[] args) {
