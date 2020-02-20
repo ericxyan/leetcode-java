@@ -30,21 +30,21 @@ public class SumTwo {
      * @return
      */
     public static int[] hashTable(int[] nums, int target) {
-        Map<Integer, Integer> valueIndexMap = new HashMap();
+        Map<Integer, Integer> valueIndexMap = new HashMap<>();
+        Integer j = null;
         for (int i = 0; i < nums.length; i++) {
-            valueIndexMap.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            Integer j = valueIndexMap.get(target - nums[i]);
+            j = valueIndexMap.get(target - nums[i]);
             if(j != null && j != i) {
                 return new int[] {i, j};
             }
+            valueIndexMap.put(nums[i], i);
         }
         throw new IllegalArgumentException("No solution");
     }
 
     public static void main(String[] args) {
-        int[] rs = bruteForce(new int[]{2, 7, 11, 15}, 9);
-        System.out.println(Arrays.toString(rs));
+        System.out.println(Arrays.toString(hashTable(new int[]{3, 7, 3, 15}, 6))); // expect [0, 2]
+        System.out.println(Arrays.toString(hashTable(new int[]{3, 3}, 6))); // expect [0, 1]
     }
+
 }
