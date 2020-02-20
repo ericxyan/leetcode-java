@@ -1,5 +1,3 @@
-package com.ericxyan.leetcode;
-
 import java.util.Scanner;
 
 public class Anagram {

@@ -1,5 +1,3 @@
-package com.ericxyan.leetcode;
-
 public class FictionBook {
 
     private static int barerMarket(int numOfComics, int cash, int fictionPrice, int comicBookPrice) {
