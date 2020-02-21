@@ -39,9 +39,9 @@ public class AddTwoNumbers {
             listB.add(0, String.valueOf(l2.val));
             l2 = l2.next;
         }
-        int a = Integer.parseInt(String.join("", listA));
-        int b = Integer.parseInt(String.join("", listB));
-        int c = a + b;
+        long a = Long.parseLong(String.join("", listA));
+        long b = Long.parseLong(String.join("", listB));
+        long c = a + b;
         System.out.println(c);
         String[] sum = String.valueOf(c).split("");
         ListNode rsHead = new ListNode(0);
@@ -82,6 +82,10 @@ public class AddTwoNumbers {
         /**
          * Case 3 Input: (2 -> 4 -> 3) + (5 -> 6) Output: 7 -> 0 -> 0 -> 1 Explanation:
          * 342 + 65 = 407.
+         */
+
+        /**
+         * Case 4 Input: 1000000000000000000000000000001
          */
     }
 }
